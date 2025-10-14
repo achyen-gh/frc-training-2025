@@ -4,15 +4,28 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import frc.robot.commands.ArcadeMotor;
+import frc.robot.constants.IOConstants;
+import frc.robot.subsystems.Motor;
 
 public class RobotContainer {
+
+  // setup
+  Motor m_motor = new Motor();
+  Joystick m_joystick = new Joystick(IOConstants.kJoystickPort);
+  Command m_command = new ArcadeMotor(m_motor, m_joystick); 
+
+
   public RobotContainer() {
     configureBindings();
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    m_motor.setDefaultCommand(m_command);
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
