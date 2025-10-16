@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.VictorSPXControlMode;
@@ -24,46 +23,46 @@ import frc.robot.constants.MotorConstants;
 public class TankDrive extends SubsystemBase {
 
   /** The left primary motor controller */
-  TalonSRX leftPrimaryMotor = new TalonSRX(MotorConstants.kLeftPrimaryMotorID);
+  TalonSRX m_leftPrimaryMotor = new TalonSRX(MotorConstants.kLeftPrimaryMotorID);
 
   /** The left secondary motor controller */
-  TalonSRX leftSecondaryMotor = new TalonSRX(MotorConstants.kLeftSecondaryMotorID);
+  TalonSRX m_leftSecondaryMotor = new TalonSRX(MotorConstants.kLeftSecondaryMotorID);
 
   /** The right primary motor controller */
-  VictorSPX rightPrimaryMotor = new VictorSPX(MotorConstants.kRightPrimaryMotorID);
+  VictorSPX m_rightPrimaryMotor = new VictorSPX(MotorConstants.kRightPrimaryMotorID);
 
   /** The right secondary motor controller */
-  VictorSPX rightSecondaryMotor = new VictorSPX(MotorConstants.kRightSecondaryMotorID);
+  VictorSPX m_rightSecondaryMotor = new VictorSPX(MotorConstants.kRightSecondaryMotorID);
 
   /** Creates a new TankDrive. Setup the motors to follow/inverse as needed */
   public TankDrive() {
     // Set the Talons to Brake mode
-    leftPrimaryMotor.setNeutralMode(NeutralMode.Brake);
-    leftSecondaryMotor.setNeutralMode(NeutralMode.Brake);
+    m_leftPrimaryMotor.setNeutralMode(NeutralMode.Brake);
+    m_leftSecondaryMotor.setNeutralMode(NeutralMode.Brake);
 
     // Set one motor on left and right each to be followers
-    leftSecondaryMotor.follow(leftPrimaryMotor);
-    rightSecondaryMotor.follow(rightPrimaryMotor);
+    m_leftSecondaryMotor.follow(m_leftPrimaryMotor);
+    m_rightSecondaryMotor.follow(m_rightPrimaryMotor);
 
     // Invert the right motor controllers
-    rightPrimaryMotor.setInverted(true);
-    rightSecondaryMotor.setInverted(true);
+    m_rightPrimaryMotor.setInverted(true);
+    m_rightSecondaryMotor.setInverted(true);
   }
 
   /** Set the left-side speed of the tank drive. */
   public void setLeftSpeed(double speed) {
-    leftPrimaryMotor.set(TalonSRXControlMode.PercentOutput, speed);
+    m_leftPrimaryMotor.set(TalonSRXControlMode.PercentOutput, speed);
   }
 
   /** Set the right-side speed of the tank drive. */
   public void setRightSpeed(double speed) {
-    rightPrimaryMotor.set(VictorSPXControlMode.PercentOutput, speed);
+    m_rightPrimaryMotor.set(VictorSPXControlMode.PercentOutput, speed);
   }
 
   @Override
   public void periodic() {
     // Log speeds for debug
-    SmartDashboard.putNumber("TankDrive left speed", leftPrimaryMotor.getMotorOutputPercent());
-    SmartDashboard.putNumber("TankDrive right speed", rightPrimaryMotor.getMotorOutputPercent());
+    SmartDashboard.putNumber("TankDrive left speed", m_leftPrimaryMotor.getMotorOutputPercent());
+    SmartDashboard.putNumber("TankDrive right speed", m_rightPrimaryMotor.getMotorOutputPercent());
   }
 }

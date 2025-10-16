@@ -4,9 +4,15 @@
 
 package frc.robot.constants;
 
-/** Add your docs here. */
+/** Constants related to Input/Output. */
 public class IOConstants {
 
-    public static final int kMotorControlAxis = 0;
+    /** The joystick axis that controls translational speed. */
+    public static final int kSpeedControlAxis = 0;
+
+    /** The joystick axis that controls rotational speed. */
+    public static final int kRotationControlAxis = 1;
+
+    /** Joystick port number. */
     public static final int kJoystickPort = 0;
 }

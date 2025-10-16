@@ -13,15 +13,15 @@ public class MotorConstants {
     public static final int kLeftPrimaryMotorID = 0;
 
     /** Left secondary motor ID */
-    public static final int kLeftSecondaryMotorID = 0;
+    public static final int kLeftSecondaryMotorID = 1;
 
     /** Right primary motor ID */
-    public static final int kRightPrimaryMotorID = 0;
+    public static final int kRightPrimaryMotorID = 2;
 
     /** Right secondary motor ID */
-    public static final int kRightSecondaryMotorID = 0;
+    public static final int kRightSecondaryMotorID = 3;
 
-    /** Multiplier to convert axis reading to speed */
-    public static final double kSpeedMultiplier = 0.5;
+    /** Multiplier to convert joystick raw axis reading to speed */
+    public static final double kAxisSpeedMultiplier = 0.5;
 
 }

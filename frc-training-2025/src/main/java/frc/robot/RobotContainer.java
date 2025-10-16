@@ -7,24 +7,30 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import frc.robot.commands.ArcadeMotor;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.constants.IOConstants;
-import frc.robot.subsystems.Motor;
+import frc.robot.subsystems.TankDrive;
 
+/**
+ * Instantiate subsystems/commands and bind as needed for robot operations.
+ */
 public class RobotContainer {
 
-  // setup
-  Motor m_motor = new Motor();
-  Joystick m_joystick = new Joystick(IOConstants.kJoystickPort);
-  Command m_command = new ArcadeMotor(m_motor, m_joystick); 
+  /** The tank drive of the robot. */
+  TankDrive m_tankDrive = new TankDrive();
 
+  /** The joystick that controls the robot. */
+  Joystick m_joystick = new Joystick(IOConstants.kJoystickPort);
+
+  /** The command that reads joystick and moves robot. */
+  ArcadeDrive m_arcadeDriveCommand = new ArcadeDrive(m_tankDrive, m_joystick);
 
   public RobotContainer() {
     configureBindings();
   }
 
   private void configureBindings() {
-    m_motor.setDefaultCommand(m_command);
+    m_tankDrive.setDefaultCommand(m_arcadeDriveCommand);
   }
 
   public Command getAutonomousCommand() {
