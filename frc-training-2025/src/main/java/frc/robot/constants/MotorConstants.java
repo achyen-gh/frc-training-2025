@@ -4,10 +4,24 @@
 
 package frc.robot.constants;
 
-/** Add your docs here. */
+/** 
+ *  Motor related constants. 
+ */
 public class MotorConstants {
 
-    public static final int kMotorID = 0;
+    /** Left primary motor ID */
+    public static final int kLeftPrimaryMotorID = 0;
+
+    /** Left secondary motor ID */
+    public static final int kLeftSecondaryMotorID = 0;
+
+    /** Right primary motor ID */
+    public static final int kRightPrimaryMotorID = 0;
+
+    /** Right secondary motor ID */
+    public static final int kRightSecondaryMotorID = 0;
+
+    /** Multiplier to convert axis reading to speed */
     public static final double kSpeedMultiplier = 0.5;
 
 }
