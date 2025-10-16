@@ -26,10 +26,10 @@ public class TankDrive extends SubsystemBase {
   TalonSRX m_leftPrimaryMotor = new TalonSRX(MotorConstants.kLeftPrimaryMotorID);
 
   /** The left secondary motor controller */
-  TalonSRX m_leftSecondaryMotor = new TalonSRX(MotorConstants.kLeftSecondaryMotorID);
+  TalonSRX m_rightPrimaryMotor = new TalonSRX(MotorConstants.kLeftSecondaryMotorID);
 
   /** The right primary motor controller */
-  VictorSPX m_rightPrimaryMotor = new VictorSPX(MotorConstants.kRightPrimaryMotorID);
+  VictorSPX m_leftSecondaryMotor = new VictorSPX(MotorConstants.kRightPrimaryMotorID);
 
   /** The right secondary motor controller */
   VictorSPX m_rightSecondaryMotor = new VictorSPX(MotorConstants.kRightSecondaryMotorID);
@@ -38,7 +38,7 @@ public class TankDrive extends SubsystemBase {
   public TankDrive() {
     // Set the Talons to Brake mode
     m_leftPrimaryMotor.setNeutralMode(NeutralMode.Brake);
-    m_leftSecondaryMotor.setNeutralMode(NeutralMode.Brake);
+    m_rightPrimaryMotor.setNeutralMode(NeutralMode.Brake);
 
     // Set one motor on left and right each to be followers
     m_leftSecondaryMotor.follow(m_leftPrimaryMotor);
@@ -56,7 +56,7 @@ public class TankDrive extends SubsystemBase {
 
   /** Set the right-side speed of the tank drive. */
   public void setRightSpeed(double speed) {
-    m_rightPrimaryMotor.set(VictorSPXControlMode.PercentOutput, speed);
+    m_rightPrimaryMotor.set(TalonSRXControlMode.PercentOutput, speed);
   }
 
   @Override
