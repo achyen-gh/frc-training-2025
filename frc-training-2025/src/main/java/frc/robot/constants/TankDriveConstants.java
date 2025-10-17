@@ -10,16 +10,16 @@ package frc.robot.constants;
 public class TankDriveConstants {
 
     /** Left primary motor ID */
-    public static final int kLeftPrimaryMotorID = 0;
+    public static final int kLeftPrimaryMotorID = 6;
 
     /** Left secondary motor ID */
-    public static final int kLeftSecondaryMotorID = 1;
+    public static final int kLeftSecondaryMotorID = 8;
 
     /** Right primary motor ID */
-    public static final int kRightPrimaryMotorID = 2;
+    public static final int kRightPrimaryMotorID = 3;
 
     /** Right secondary motor ID */
-    public static final int kRightSecondaryMotorID = 3;
+    public static final int kRightSecondaryMotorID = 7;
 
     /** Multiplier to convert joystick raw axis reading to speed */
     public static final double kAxisSpeedMultiplier = 0.5;
