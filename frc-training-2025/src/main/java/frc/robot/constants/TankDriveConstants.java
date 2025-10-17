@@ -7,7 +7,7 @@ package frc.robot.constants;
 /** 
  *  Motor related constants. 
  */
-public class MotorConstants {
+public class TankDriveConstants {
 
     /** Left primary motor ID */
     public static final int kLeftPrimaryMotorID = 0;

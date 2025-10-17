@@ -11,7 +11,7 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.MotorConstants;
+import frc.robot.constants.TankDriveConstants;
 
 /**
  * Subsystem that represents the tank drive of the robot.
@@ -22,16 +22,16 @@ import frc.robot.constants.MotorConstants;
 public class TankDrive extends SubsystemBase {
 
   /** The left primary motor controller */
-  TalonSRX m_leftPrimaryMotor = new TalonSRX(MotorConstants.kLeftPrimaryMotorID);
+  private TalonSRX m_leftPrimaryMotor = new TalonSRX(TankDriveConstants.kLeftPrimaryMotorID);
 
   /** The left secondary motor controller */
-  TalonSRX m_rightPrimaryMotor = new TalonSRX(MotorConstants.kLeftSecondaryMotorID);
+  private TalonSRX m_rightPrimaryMotor = new TalonSRX(TankDriveConstants.kLeftSecondaryMotorID);
 
   /** The right primary motor controller */
-  VictorSPX m_leftSecondaryMotor = new VictorSPX(MotorConstants.kRightPrimaryMotorID);
+  private VictorSPX m_leftSecondaryMotor = new VictorSPX(TankDriveConstants.kRightPrimaryMotorID);
 
   /** The right secondary motor controller */
-  VictorSPX m_rightSecondaryMotor = new VictorSPX(MotorConstants.kRightSecondaryMotorID);
+  private VictorSPX m_rightSecondaryMotor = new VictorSPX(TankDriveConstants.kRightSecondaryMotorID);
 
   /** Creates a new TankDrive. Setup the motors to follow/inverse as needed */
   public TankDrive() {

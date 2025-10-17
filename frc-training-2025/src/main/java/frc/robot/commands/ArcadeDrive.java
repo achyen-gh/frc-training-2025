@@ -7,7 +7,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.constants.IOConstants;
-import frc.robot.constants.MotorConstants;
+import frc.robot.constants.TankDriveConstants;
 import frc.robot.subsystems.TankDrive;
 
 /**
@@ -16,22 +16,22 @@ import frc.robot.subsystems.TankDrive;
 public class ArcadeDrive extends Command {
 
   /** The tank drive to move. */
-  TankDrive m_tankDrive;
+  private TankDrive m_tankDrive;
 
   /** The joystick to read inputs from. */
-  Joystick m_joystick;
+  private Joystick m_joystick;
 
   /** The intended translational speed. */
-  double m_speed;
+  private double m_speed;
 
   /** The intended rotational speed. */
-  double m_turn;
+  private double m_turn;
 
   /** The left-side drive speed. */
-  double m_left;
+  private double m_left;
 
   /** The right-side drive speed. */
-  double m_right;
+  private double m_right;
 
   /** Creates a new ArcadeDrive. */
   public ArcadeDrive(TankDrive tankDrive, Joystick joystick) {
@@ -55,8 +55,8 @@ public class ArcadeDrive extends Command {
     // Convert translation/rotation to left/right speeds.
     // Positive turn is read as turning to right.
     // Scale with multiplier.
-    m_left = (m_speed + m_turn) * MotorConstants.kAxisSpeedMultiplier;
-    m_right = (m_speed - m_turn) * MotorConstants.kAxisSpeedMultiplier;
+    m_left = (m_speed + m_turn) * TankDriveConstants.kAxisSpeedMultiplier;
+    m_right = (m_speed - m_turn) * TankDriveConstants.kAxisSpeedMultiplier;
 
     // Set drive speeds
     m_tankDrive.setLeftSpeed(m_left);
